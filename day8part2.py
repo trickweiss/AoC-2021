@@ -52,7 +52,7 @@ def output_value(signals):
 def puzzle(filename):
     with open(filename) as f:
         lines = f.readlines()
-        lines = [re.split('\W+', line.rstrip()) for line in lines]
+    lines = [re.split('\W+', line.rstrip()) for line in lines]
     sum = 0
     for line in lines:
         sum += output_value(line)

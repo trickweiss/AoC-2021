@@ -29,17 +29,17 @@ def find_points(x1, y1, x2, y2):
 def puzzle(filename):
     with open(filename) as f:
         lines = f.readlines()
-        lines = [list(map(int, re.split('\D+', line.rstrip()))) for line in lines]
-        prev_points = set()
-        danger_points = set()
-        for line in lines:
-            x1 = line[0]
-            y1 = line[1]
-            x2 = line[2]
-            y2 = line[3]
-            points = find_points(x1, y1, x2, y2)
-            danger_points |= (prev_points & points)
-            prev_points |= points
+    lines = [list(map(int, re.split('\D+', line.rstrip()))) for line in lines]
+    prev_points = set()
+    danger_points = set()
+    for line in lines:
+        x1 = line[0]
+        y1 = line[1]
+        x2 = line[2]
+        y2 = line[3]
+        points = find_points(x1, y1, x2, y2)
+        danger_points |= (prev_points & points)
+        prev_points |= points
     return len(danger_points)
 
 if (d := puzzle(DEMO_FILE)) == EXPECTED_RESULT:

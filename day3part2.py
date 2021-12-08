@@ -22,17 +22,17 @@ def criterion_fitters(lines, position, is_ogr):
 def puzzle(filename):
     with open(filename) as f:
         lines = f.readlines()
-        lines = [line.rstrip() for line in lines]
-        oxygen_generator_rating = lines
-        co2_scrubber_rating = lines
-        position = 0
-        while len(oxygen_generator_rating) > 1:
-            oxygen_generator_rating = criterion_fitters(oxygen_generator_rating, position, True)
-            position += 1
-        position = 0
-        while len(co2_scrubber_rating) > 1:
-            co2_scrubber_rating = criterion_fitters(co2_scrubber_rating, position, False)
-            position += 1
+    lines = [line.rstrip() for line in lines]
+    oxygen_generator_rating = lines
+    co2_scrubber_rating = lines
+    position = 0
+    while len(oxygen_generator_rating) > 1:
+        oxygen_generator_rating = criterion_fitters(oxygen_generator_rating, position, True)
+        position += 1
+    position = 0
+    while len(co2_scrubber_rating) > 1:
+        co2_scrubber_rating = criterion_fitters(co2_scrubber_rating, position, False)
+        position += 1
     return int(oxygen_generator_rating[0], 2) * int(co2_scrubber_rating[0], 2)
 
 if (d := puzzle(DEMO_FILE)) == EXPECTED_RESULT:

@@ -16,7 +16,7 @@ def puzzle(filename):
     }
     with open(filename) as f:
         lines = f.readlines()
-        lines = [re.split('\W+', line.rstrip()) for line in lines]
+    lines = [re.split('\W+', line.rstrip()) for line in lines]
     count = 0
     for line in lines:
         for digit in line[-4:]:

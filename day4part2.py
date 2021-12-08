@@ -25,23 +25,23 @@ def solve_card(card, calls):
 def puzzle(filename):
     with open(filename) as f:
         lines = f.readlines()
-        lines = [line.rstrip() for line in lines]
-        calls = lines[0].split(',')
-        cards = []
-        card = []
-        for line in lines[1:]:
-            if (l := line.split()):
-                card.append(l)
-            if len(card) == 5:
-                cards.append(card)
-                card = []
-        max_steps = 0
-        winning_score = 0
-        for card in cards:
-            steps, score = solve_card(card, calls)
-            if steps > max_steps:
-                max_steps = steps
-                winning_score = score
+    lines = [line.rstrip() for line in lines]
+    calls = lines[0].split(',')
+    cards = []
+    card = []
+    for line in lines[1:]:
+        if (l := line.split()):
+            card.append(l)
+        if len(card) == 5:
+            cards.append(card)
+            card = []
+    max_steps = 0
+    winning_score = 0
+    for card in cards:
+        steps, score = solve_card(card, calls)
+        if steps > max_steps:
+            max_steps = steps
+            winning_score = score
     return winning_score
 
 if (d := puzzle(DEMO_FILE)) == EXPECTED_RESULT:
