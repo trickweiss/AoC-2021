@@ -5,25 +5,6 @@ BASE_NAME = re.search('day[0-9]+', __file__)[0]
 DEMO_FILE = f"{BASE_NAME}demo.txt"
 PUZZLE_FILE = f"{BASE_NAME}input.txt"
 
-def find_points_(x1, y1, x2, y2):
-    if x1 > x2:
-        x1, x2 = x2, x1
-    if y1 > y2:
-        y1, y2 = y2, y1
-    points = set()
-    xs = range(x1, x2 + 1)
-    ys = range(y1, y2 + 1)
-    if len(ys) == len(xs):
-        for i, x in enumerate(xs):
-            points.add((x, ys[i]))
-    elif len(ys) < len(xs):
-        for x in xs:
-            points.add((x, ys[0]))
-    else:
-        for y in ys:
-            points.add((xs[0], y))
-    return points
-
 def find_points(x1, y1, x2, y2):
     stepx = 1
     stepy = 1
